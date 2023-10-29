@@ -19,11 +19,11 @@
                     <div class="col">
                         <img src="/Users/cf3/Desktop/GitHub/weather/weatherImages/humidity.png">
                         <div>
-                            <p class="humity">50%</p>
+                            <p class="humidity">50%</p>
                             <p>Humidity</p>
                         </div>
                     </div>
-                    <div class="col">
+                    <div cslass="col">
                         <img src="/Users/cf3/Desktop/GitHub/weather/weatherImages/wind.png">
                         <div>
                             <p class="wind">15 km/h</p>
@@ -34,5 +34,24 @@
             </div>
         </div>
 
+        <script>
+
+            const apiKey = "917f155ab401928fb55ca2033192ff4a"; 
+            const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=dallas";
+        
+        async function checkWeather () {
+            const response = await fetch (apiUrl + `&appid=${apiKey}`);
+            var data = await response.json();
+
+            console.log(data);
+
+            document.querySelector (".city").innerHTML = data.name; 
+            document.querySelector (".temp").innerHTML = Math.round(data.main.temp) + "°F"; 
+            document.querySelector (".humidity").innerHTML = data.main.humidity + "%"; 
+            document.querySelector (".wind").innerHTML = data.wind.speed + " MPH"; 
+        }
+
+        checkWeather ();
+        </script>
     </body>
 </html>
