@@ -8,26 +8,26 @@
     <body>
         <div class="card">
             <div class="search">
-                <input type="text" placeholder="Enter City Name" spellcheck="false">
-                <button><img src="/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/search.png"></button>
+                <input id="search" type="text" placeholder="Enter City Name" spellcheck="false">
+                <button><img src="weatherImages/search.png"></button>
             </div>
             <div class="error">
                 <p>Invalid city name</p>
             </div>
             <div class="weather">
-                <img src="/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/rain.png" class="weather-icon">
+                <img src="weatherImages/rain.png" class="weather-icon">
                 <h1 class="temp">22°F</h1>
                 <h2 class="city">Dallas</h2>
                 <div class="details">
                     <div class="col">
-                        <img src="/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/humidity.png">
+                        <img src="weatherImages/humidity.png">
                         <div>
                             <p class="humidity">50%</p>
                             <p>Humidity</p>
                         </div>
                     </div>
                     <div class="col">
-                        <img src="/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/wind.png">
+                        <img src="weatherImages/wind.png">
                         <div>
                             <p class="wind">15 km/h</p>
                             <p>Wind Speed</p>
@@ -42,9 +42,10 @@
             const apiKey = "917f155ab401928fb55ca2033192ff4a"; 
             const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
 
-            const searchBox = document.querySelector(".search input")
-            const searchBtn = document.querySelector(".search button")
-            const weatherIcon = document.querySelector(".weather-icon")
+            const searchBox = document.querySelector(".search input");
+            searchBox.focus();
+            const searchBtn = document.querySelector(".search button");
+            const weatherIcon = document.querySelector(".weather-icon");
         
         async function checkWeather (city) {
             const response = await fetch (apiUrl + city + `&appid=${apiKey}`);
@@ -60,18 +61,37 @@ document.querySelector (".temp").innerHTML = Math.round(data.main.temp) + "°F";
 document.querySelector (".humidity").innerHTML = data.main.humidity + "%"; 
 document.querySelector (".wind").innerHTML = data.wind.speed + " MPH"; 
 
-if (data.weather[0].main == "Clouds"){
-weatherIcon.src = "/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/clouds.png"; 
-} else if (data.weather[0].main == "Clear"){
-weatherIcon.src = "/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/clear.png"; 
-} else if (data.weather[0].main == "Rain"){
-weatherIcon.src = "/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/rain.png"; 
-} else if (data.weather[0].main == "Drizzle"){
-weatherIcon.src = "/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/drizzle.png"; 
-} else if (data.weather[0].main == "Mist"){
-weatherIc
-on.src = "/Users/cf3/Desktop/GitHub/weatherJsApp/weatherImages/mist.png"; 
-} 
+
+switch (data.weather[0].main) {
+    case "Clouds": 
+        weatherIcon.src = "weatherImages/clouds.png";
+         break; 
+    case "Clear": 
+        weatherIcon.src = "weatherImages/clear.png";
+        break; 
+    case "Rain": 
+        weatherIcon.src = "weatherImages/rain.png";
+        break; 
+    case "Drizzle": 
+        weatherIcon.src = "weatherImages/icon.png";
+        break; 
+    case "Mist": 
+        weatherIcon.src = "weatherImages/mist.png";
+        break; 
+    default: /*Insert generic image here*/
+}
+
+var inputElement = document.getElementById("search");
+
+// Add an event listener for the "keydown" event
+inputElement.addEventListener("keydown", function(event) {
+  // Check if the key pressed is Enter (key code 13)
+  if (event.key === "Enter" || event.keyCode === 13) {
+    // Execute your function here
+    checkWeather (searchBox.value);
+  }
+});
+
 
 document.querySelector(".weather").style.display = "block";
 document.querySelector(".error").style.display = "none";
