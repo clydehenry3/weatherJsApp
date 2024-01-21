@@ -1,7 +1,22 @@
 # Weather JS Project 
 
-Hello! I am a UX Designer looking to get into Front-End Development. This is my first JS project after learning from fCC.
-I will be updating this file as I work on this project. **I am not seeking for this to be an open-source project/collaboration, but any feedback is greatly appreciated.**
+##Overview
+Hello! I am a UX Designer looking to get into Front-End Development. This website is a project that I applied my learning to after learning basic JS from freeCodeCamp. 
+**Live Link:** https://willowy-malasada-2aac0a.netlify.app/weather.html
 
-# Video Tutorial URL: 
-https://www.youtube.com/watch?v=MIYQR-Ybrn4&t=1076s 
+##Features 
+* Displays weather conditions in cities and countries around the world with real data from APIs 
+* Weather conditions include 
+    * Temperature (°F) 
+    * Humidity 
+    * Wind Speed 
+* Conditions image changes based on the data from the API 
+
+##Tech Used
+* Markdown/Language
+    * HTML 
+    * CSS 
+    * JavaScript 
+* API: Open Weather Map
+* Fonts from Google Fonts
+* Pictures unknown  
