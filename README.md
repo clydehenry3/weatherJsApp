@@ -1,10 +1,11 @@
 # Weather JS Project 
 
-##Overview
+## Overview
 Hello! I am a UX Designer looking to get into Front-End Development. This website is a project that I applied my learning to after learning basic JS from freeCodeCamp. 
-**Live Link:** https://willowy-malasada-2aac0a.netlify.app/weather.html
 
-##Features 
+** Live Link: ** https://willowy-malasada-2aac0a.netlify.app/weather.html
+
+## Features 
 * Displays weather conditions in cities and countries around the world with real data from APIs 
 * Weather conditions include 
     * Temperature (°F) 
@@ -12,7 +13,7 @@ Hello! I am a UX Designer looking to get into Front-End Development. This websit
     * Wind Speed 
 * Conditions image changes based on the data from the API 
 
-##Tech Used
+## Tech Used
 * Markdown/Language
     * HTML 
     * CSS 
